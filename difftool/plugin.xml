@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            class="difftool.handlers.CompareWithHeadHandler"
+            commandId="difftool.commands.cwh">
+      </handler>
+      <handler
+             class="difftool.handlers.CompareWithHashIdHandler"
+             commandId="difftool.commands.cwhid">
+       </handler>
+      
+      <handler
+            class="difftool.handlers.PushStashHandler"
+            commandId="difftool.commands.pstash">
+      </handler>
+      
+       <handler
+            class="difftool.handlers.StatusHandler"
+            commandId="difftool.commands.gs">
+      </handler>
+       <handler
+             class="difftool.handlers.StashApplyHandler"
+             commandId="difftool.commands.pstashapply">
+       </handler>
+        <handler
+             class="difftool.handlers.DropStashHandler"
+             commandId="difftool.commands.dropStash">
+       </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="difftool.commands.cwh"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="difftool.commands.cwhid"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+      
+            <key
+            commandId="difftool.commands.gs"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+	    <key
+	          commandId="difftool.commands.pstash"
+	          contextId="org.eclipse.ui.contexts.window"
+	          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	          sequence="M1+6">
+	    </key>
+	    <key
+	          commandId="difftool.commands.pstashapply"
+	          contextId="org.eclipse.ui.contexts.window"
+	          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	          sequence="M1+6">
+	    </key>
+	    <key
+	          commandId="difftool.commands.dropStash"
+	          contextId="org.eclipse.ui.contexts.window"
+	          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	          sequence="M1+6">
+	    </key>	    
+	    
+   </extension>
+      <extension
+         point="org.eclipse.ui.menus">
+         
+      <menuContribution
+      	allPopups="false"
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+             <menu id="difftool.menus.rootGitMenu" 
+             	label="Git">
+            </menu>          
+      </menuContribution>
+     </extension>  
+
+          
+   <extension
+         point="org.eclipse.ui.menus">
+         
+      <menuContribution
+      	allPopups="false"
+            locationURI="popup:difftool.menus.rootGitMenu">
+             <menu id="difftool.menus.comapreWithSub" label="Compare With">
+	            <command 
+	            	commandId="difftool.commands.cwh"
+	                  id="difftool.menus.cwh"
+	                  label="HEAD"
+	                  style="push">
+	            </command>
+             <command
+                   commandId="difftool.commands.cwhid"
+                   id="difftool.menus.chwid"
+                   label="Commit Id"
+                   style="push">
+             </command>
+            </menu>
+            <command 
+            	commandId="difftool.commands.gs"
+                  id="difftool.menus.gs"
+                  label="Status"
+                  style="push">
+            </command>
+            <menu
+                  id="difftool.menus.stashSub"
+                  label="Stash">
+               <command
+                     commandId="difftool.commands.pstash"
+                     id="difftool.menus.pstash"
+                     label="Push"
+                     style="push">
+               </command>
+                <command
+                     commandId="difftool.commands.pstashapply"
+                     id="difftool.menus.pstashapply"
+                     label="Apply"
+                     style="push">
+               </command>
+               <command
+                     commandId="difftool.commands.dropStash"
+                     id="difftool.menus.dropStash"
+                     label="Drop"
+                     style="push">
+               </command>               
+            </menu>
+      </menuContribution>
+     </extension>   
+     
+     
+
+
+</plugin>
